@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- Declaración de idioma para accesibilidad y lectores de pantalla -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>ATINC - Asociación de Trabajadores de la Imprenta Nacional de Colombia</title>
+    
+    <!-- Tipografías oficiales del Manual de Identidad (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;900&family=Literata:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Encabezado y Navegación Principal -->
+    <header class="header-institucional">
+        <div class="container nav-container">
+            <!-- Isotipo como botón de inicio (se asume que subirás la imagen a assets/img) -->
+            <a href="#inicio" aria-label="Ir al inicio" class="logo-link">
+                <img src="assets/img/ATINC-marca-mariposa.svg" alt="Marca Mariposa ATINC" class="logo-mariposa">
+                <span class="sigla-logo">ATINC</span>
+            </a>
+            
+            <!-- Menú de navegación accesible -->
+            <nav aria-label="Navegación principal">
+                <ul class="nav-links">
+                    <li><a href="#comunicados">Comunicados</a></li>
+                    <li><a href="#estatutos">Curso Estatutos</a></li>
+                    <li><a href="#tramites">Trámites y Afiliación</a></li>
+                    <li><a href="#chatbot" class="btn-primario">Asesor Legal Virtual</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección de Inicio / Hero -->
+        <section id="inicio" class="hero-section">
+            <div class="container">
+                <h1>Dignidad, Trabajo y Progreso</h1>
+                <p class="hero-text">Bienvenidos y bienvenidas al ecosistema digital de la Asociación de Trabajadores de la Imprenta Nacional de Colombia. Un espacio construido para la comunidad laboral, enfocado en la transparencia y la participación.</p>
+                <a href="#afiliacion" class="btn-secundario">Únete a ATINC</a>
+            </div>
+            <!-- Espacio para el patrón de Guilloche de fondo mediante CSS -->
+            <div class="fondo-guilloche" aria-hidden="true"></div>
+        </section>
+
+        <!-- Sección de Comunicados y Galería -->
+        <section id="comunicados" class="seccion-clara">
+            <div class="container">
+                <h2>Comunicados y Actualidad</h2>
+                <div class="grid-2-columnas">
+                    <article class="card-comunicado">
+                        <span class="numeracion">Comunicado No. 001</span>
+                        <h3>Avances de la Junta Directiva</h3>
+                        <p>Resumen de las gestiones recientes en beneficio de nuestra base de trabajadores y trabajadoras...</p>
+                        <a href="#" aria-label="Leer Comunicado 001 completo">Leer más</a>
+                    </article>
+                    <!-- Aquí integraremos luego el feed de redes sociales (JS) -->
+                    <div class="feed-redes" id="feed-social">
+                        <p><em>Cargando actualidad de nuestras redes...</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Curso Estatutos -->
+        <section id="estatutos" class="seccion-oscura">
+            <div class="container">
+                <h2>Conoce tus Estatutos</h2>
+                <p>Nuestra normativa es la base de nuestros derechos. Accede al curso interactivo, toma notas y obtén tu certificado.</p>
+                <!-- El contenedor donde el JS de curso.js renderizará el módulo -->
+                <div id="modulo-curso-interactivo">
+                    <button id="btn-iniciar-curso" class="btn-primario">Iniciar Curso Pedagógico</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Trámites: Afiliación y Carné -->
+        <section id="tramites" class="seccion-clara">
+            <div class="container">
+                <h2>Trámites Sindicales</h2>
+                <div class="grid-2-columnas">
+                    <!-- Tarjeta de Afiliación -->
+                    <div class="card-tramite" id="afiliacion">
+                        <h3>Formato de Afiliación</h3>
+                        <p>Diligencia tus datos de forma segura para generar el documento PDF listo para firmar y radicar.</p>
+                        <button id="btn-abrir-afiliacion" class="btn-secundario">Diligenciar Formulario</button>
+                    </div>
+                    
+                    <!-- Tarjeta de Carné -->
+                    <div class="card-tramite" id="carne">
+                        <h3>Generador de Carné</h3>
+                        <p>Genera tu carné digital con el logotipo reducido oficial para llevar tu identificación sindical.</p>
+                        <button id="btn-abrir-carne" class="btn-secundario">Generar mi Carné</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chatbot Flotante (UI Base) -->
+    <div id="chatbot-container" class="chatbot-oculto" aria-label="Ventana del Asesor Legal Virtual">
+        <div class="chatbot-header">
+            <h4>Asesor Legal ATINC</h4>
+            <button id="btn-cerrar-chat" aria-label="Cerrar chat">X</button>
+        </div>
+        <div class="chatbot-mensajes" id="chat-historial">
+            <div class="mensaje bot">¡Hola! Soy tu asesor legal basado en los Estatutos de ATINC. ¿En qué te puedo orientar hoy?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chat-input" placeholder="Escribe tu consulta aquí..." aria-label="Mensaje para el asesor">
+            <button id="btn-enviar-chat" class="btn-primario">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Botón flotante para abrir el chat -->
+    <button id="btn-abrir-chat" class="btn-flotante" aria-label="Abrir Asesor Legal Virtual">
+        💬 Chatbot Estatutos
+    </button>
+
+    <!-- Pie de página Institucional -->
+    <footer class="footer-institucional">
+        <div class="container">
+            <p><strong>Asociación de Trabajadores de la Imprenta Nacional de Colombia (ATINC)</strong></p>
+            <p>Plataforma de código abierto con anonimización de datos de la comunidad laboral.</p>
+            <p class="creditos">Ecosistema cocreado por @carluute y el Asistente de IA (Gemini).</p>
+        </div>
+    </footer>
+
+    <!-- Scripts modularizados -->
+    <script src="js/main.js"></script>
+    <!-- Los demás scripts se cargarán según sea necesario para optimizar el rendimiento -->
+</body>
+</html>
