@@ -73,10 +73,64 @@
         <section id="estatutos" class="seccion-oscura">
             <div class="container">
                 <h2>Conoce tus Estatutos</h2>
-                <p>Nuestra normativa es la base de nuestros derechos. Accede al curso interactivo, toma notas y obtén tu certificado.</p>
-                <!-- El contenedor donde el JS de curso.js renderizará el módulo -->
-                <div id="modulo-curso-interactivo">
-                    <button id="btn-iniciar-curso" class="btn-primario">Iniciar Curso Pedagógico</button>
+                <p>Nuestra normativa es la base de nuestros derechos. Accede al curso interactivo, evalúa tus conocimientos y obtén tu certificado.</p>
+                
+                <!-- Interfaz del Curso Interactivo -->
+                <div id="modulo-curso-interactivo" class="modulo-interactivo">
+                    <!-- Pregunta del cuestionario -->
+                    <div id="quiz-container">
+                        <h3 id="pregunta-texto">Cargando pregunta...</h3>
+                        <div id="opciones-container" class="opciones-grid"></div>
+                        <p id="retroalimentacion" aria-live="polite"></p> <!-- aria-live lee el resultado para lectores de pantalla -->
+                    </div>
+                    
+                    <!-- Contenedor del Certificado (Oculto hasta aprobar) -->
+                    <div id="certificado-container" style="display: none;">
+                        <h3>¡Felicitaciones! Has aprobado el curso.</h3>
+                        <p>Ingresa tu nombre y el pronombre con el que te identificas (ej. afiliado, afiliada, afiliad@) para generar tu certificado.</p>
+                        <input type="text" id="nombre-certificado" placeholder="Tu nombre completo">
+                        <input type="text" id="pronombre-certificado" placeholder="Afiliada / Afiliado">
+                        <button id="btn-generar-certificado" class="btn-primario">Generar Certificado</button>
+                        <!-- El elemento canvas donde JS dibujará el certificado con los guilloches -->
+                        <canvas id="canvas-certificado" width="800" height="600" style="max-width: 100%; border: 1px solid #ccc; margin-top: 15px;"></canvas>
+                        <br>
+                        <a id="btn-descargar-certificado" class="btn-secundario" style="display: none;">Descargar PDF/PNG</a>
+                        <!-- Referencia normativa exigida -->
+                        <p class="creditos" style="font-size: 0.8rem; margin-top: 20px;">Curso cocreado por @carluute y Gemini. Referencias aplicadas bajo normas APA (7.ª edición).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Trámites: Afiliación y Carné -->
+        <section id="tramites" class="seccion-clara">
+            <div class="container">
+                <h2>Trámites Sindicales</h2>
+                <div class="grid-2-columnas">
+                    <!-- ... (El bloque de afiliación se mantiene igual que en la fase 1) ... -->
+                    
+                    <!-- Tarjeta de Carné con Formulario Interactivo -->
+                    <div class="card-tramite" id="carne">
+                        <h3>Generador de Carné</h3>
+                        <p>Genera tu carné digital incluyendo la versión reducida del logotipo institucional.</p>
+                        
+                        <!-- Formulario para recolectar datos del carné -->
+                        <div class="formulario-carne">
+                            <input type="text" id="carne-nombre" placeholder="Nombre completo" required>
+                            <input type="text" id="carne-cedula" placeholder="Número de Cédula" required>
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <input type="text" id="carne-rh" placeholder="Tipo de Sangre y RH (Ej. O+)" style="flex: 1;" required>
+                                <input type="date" id="carne-fecha" aria-label="Fecha de afiliación" style="flex: 1;" required>
+                            </div>
+                            <label for="carne-foto" style="font-size: 0.9rem;">Sube tu fotografía (se recortará en círculo automático):</label>
+                            <input type="file" id="carne-foto" accept="image/*" style="margin-bottom: 15px;">
+                            
+                            <button id="btn-generar-carne" class="btn-secundario">Generar mi Carné</button>
+                        </div>
+                        
+                        <!-- Canvas donde se dibuja el carné -->
+                        <canvas id="canvas-carne" width="600" height="380" style="max-width: 100%; border-radius: 8px; margin-top: 15px; display: none;"></canvas>
+                    </div>
                 </div>
             </div>
         </section>
@@ -139,5 +193,8 @@
     <!-- Scripts modularizados agrego ChatBot Estaturario -->
     <script src="js/main.js"></script>
     <script src="js/chatbot.js"></script>
+    <!-- Scripts modularizados agrego Curso de Estatutos y generador de carné -->
+    <script src="js/curso.js"></script>
+    <script src="js/carne.js"></script>
 </body>
 </html>
