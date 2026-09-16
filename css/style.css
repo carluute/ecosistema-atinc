@@ -1,0 +1,265 @@
+/* ==========================================================================
+   Ecosistema ATINC - Estilos Principales
+   Cumple con lineamientos UI del Manual de Identidad y Accesibilidad (WCAG)
+   ========================================================================== */
+
+/* Variables CSS para consistencia de marca (Tomadas del Manual) */
+:root {
+    --azul-atinc: #1A4B73;       /* Azul institucional principal */
+    --amarillo-mariposa: #FFDD00;/* Color de acento e interacción */
+    --rojo-tricolor: #E30713;
+    --azul-tricolor: #0074BD;
+    --crema-fondo: #F1E6D0;      /* Recomendado para fondos de lectura (reduce fatiga) */
+    
+    --fuente-titulares: 'Archivo', sans-serif;
+    --fuente-texto: 'Literata', serif;
+    
+    --texto-oscuro: #2C3E50;
+    --texto-blanco: #FFFFFF;
+}
+
+/* Reset básico y Accesibilidad (tamaños relativos) */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    font-size: 11pt; /* Escala base amigable para lectura */
+    line-height: 1.6;
+    color: var(--texto-oscuro);
+    background-color: var(--texto-blanco);
+}
+
+/* Clases utilitarias de layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid-2-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Tipografía Institucional */
+h1, h2, h3, h4, .nav-links a, .btn-primario, .btn-secundario {
+    font-family: var(--fuente-titulares);
+}
+
+h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; color: var(--azul-atinc); }
+h2 { font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--azul-atinc); }
+h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+
+/* Botones y enlaces - Alto contraste y áreas táctiles grandes */
+a {
+    color: var(--azul-atinc);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+a:hover, a:focus {
+    color: var(--azul-tricolor);
+}
+
+.btn-primario, .btn-secundario {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primario {
+    background-color: var(--azul-atinc);
+    color: var(--texto-blanco);
+}
+
+.btn-primario:hover, .btn-primario:focus {
+    background-color: var(--texto-blanco);
+    color: var(--azul-atinc);
+    border-color: var(--azul-atinc);
+}
+
+.btn-secundario {
+    background-color: var(--amarillo-mariposa);
+    color: var(--azul-atinc);
+}
+
+.btn-secundario:hover, .btn-secundario:focus {
+    background-color: transparent;
+    border-color: var(--amarillo-mariposa);
+}
+
+/* Estado Focus para accesibilidad de teclado */
+*:focus-visible {
+    outline: 3px solid var(--amarillo-mariposa);
+    outline-offset: 3px;
+}
+
+/* Encabezado */
+.header-institucional {
+    background-color: var(--texto-blanco);
+    border-bottom: 4px solid var(--azul-atinc);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.logo-mariposa {
+    width: 40px; /* Tamaño adaptable */
+    height: auto;
+}
+
+.sigla-logo {
+    font-family: var(--fuente-titulares);
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--azul-atinc);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Secciones Genéricas */
+section {
+    padding: 60px 0;
+}
+
+.seccion-clara { background-color: var(--texto-blanco); }
+.seccion-oscura { background-color: var(--crema-fondo); } /* Fondo crema para legibilidad extendida */
+
+/* Tarjetas (Cards) */
+.card-comunicado, .card-tramite {
+    background: var(--texto-blanco);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--amarillo-mariposa);
+}
+
+.numeracion {
+    font-family: var(--fuente-titulares);
+    font-size: 0.85rem;
+    color: var(--azul-tricolor);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* UI Chatbot Flotante */
+.btn-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--azul-atinc);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: none;
+    font-family: var(--fuente-titulares);
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.chatbot-oculto { display: none; }
+
+#chatbot-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    background: white;
+    border: 1px solid var(--azul-atinc);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.chatbot-header {
+    background-color: var(--azul-atinc);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--fuente-titulares);
+}
+
+.chatbot-mensajes {
+    height: 300px;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Pie de página */
+.footer-institucional {
+    background-color: var(--azul-atinc);
+    color: var(--texto-blanco);
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer-institucional .creditos {
+    font-size: 0.9rem;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; gap: 15px; }
+    .nav-links { flex-direction: column; width: 100%; text-align: center; }
+    #chatbot-container { width: 90%; right: 5%; }
+}
