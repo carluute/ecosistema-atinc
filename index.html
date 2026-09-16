@@ -142,9 +142,47 @@
                 <div class="grid-2-columnas">
                     <!-- Tarjeta de Afiliación -->
                     <div class="card-tramite" id="afiliacion">
-                        <h3>Formato de Afiliación</h3>
-                        <p>Diligencia tus datos de forma segura para generar el documento PDF listo para firmar y radicar.</p>
-                        <button id="btn-abrir-afiliacion" class="btn-secundario">Diligenciar Formulario</button>
+                        <h3>Formato de Afiliación ATINC</h3>
+                        <p>Diligencia tus datos para generar el documento oficial. Recuerda que deberás imprimirlo, firmarlo, poner tu huella y radicarlo.</p>
+                        
+                        <form id="form-afiliacion" class="formulario-extenso">
+                            <!-- Información Personal -->
+                            <fieldset>
+                                <legend>Información Personal</legend>
+                                <input type="text" id="afil-nombre" placeholder="Nombres y Apellidos completos" required>
+                                <div class="grid-2-columnas" style="margin-top:0;">
+                                    <input type="text" id="afil-cedula" placeholder="Cédula No." required>
+                                    <input type="text" id="afil-expedicion" placeholder="Expedida en" required>
+                                </div>
+                                <input type="text" id="afil-correo" placeholder="Correo Electrónico" required>
+                                <input type="tel" id="afil-celular" placeholder="Celular" required>
+                            </fieldset>
+
+                            <!-- Información Laboral -->
+                            <fieldset>
+                                <legend>Información Laboral en la INC</legend>
+                                <input type="text" id="afil-cargo" placeholder="Cargo (Ej. Coordinadora de Comunicaciones)" required>
+                                <div class="grid-2-columnas" style="margin-top:0;">
+                                    <input type="text" id="afil-asignacion" placeholder="Asignación Básica">
+                                    <input type="date" id="afil-fecha-ingreso" aria-label="Fecha de ingreso a la Imprenta" required>
+                                </div>
+                            </fieldset>
+
+                            <!-- Autorizaciones Legales -->
+                            <fieldset>
+                                <legend>Declaración y Autorizaciones</legend>
+                                <label style="font-size: 0.85rem; display: flex; gap: 10px;">
+                                    <input type="checkbox" id="afil-acepto-estatutos" required>
+                                    <span>Declaro de manera libre afiliarme a ATINC y someterme a sus estatutos, autorizando el descuento por nómina de la cuota sindical (1%).</span>
+                                </label>
+                                <label style="font-size: 0.85rem; display: flex; gap: 10px; margin-top: 10px;">
+                                    <input type="checkbox" id="afil-acepto-datos" required>
+                                    <span>Autorizo el tratamiento de mis datos personales (Ley 1581 de 2012) para fines sindicales y comunicaciones.</span>
+                                </label>
+                            </fieldset>
+
+                            <button type="submit" class="btn-primario" style="width: 100%; margin-top: 15px;">Generar Documento para Imprimir</button>
+                        </form>
                     </div>
                     
                     <!-- Tarjeta de Carné -->
@@ -196,5 +234,7 @@
     <!-- Scripts modularizados agrego Curso de Estatutos y generador de carné -->
     <script src="js/curso.js"></script>
     <script src="js/carne.js"></script>
+    <!-- Scripts modularizados agrego Afiliación -->
+    <script src="js/afiliacion.js"></script>
 </body>
 </html>
