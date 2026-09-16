@@ -263,3 +263,9 @@ section {
     .nav-links { flex-direction: column; width: 100%; text-align: center; }
     #chatbot-container { width: 90%; right: 5%; }
 }
+
+/* Estilos para formularios extensos */
+fieldset { border: 1px solid #ccc; border-radius: 5px; padding: 15px; margin-bottom: 15px; }
+legend { font-weight: bold; color: var(--azul-atinc); padding: 0 5px; font-family: var(--fuente-titulares); }
+input[type="text"], input[type="tel"], input[type="date"], input[type="email"] { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--fuente-texto); }
+}
